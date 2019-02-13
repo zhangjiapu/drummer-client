@@ -1,18 +1,35 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+    "pages/home/home",
+    "pages/lesson/lesson",
+    "pages/my/my"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "light",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#69c3aa",
+    "navigationBarTitleText": "Tempo架子鼓",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/home/home",
+      "text": "首页",
+      "iconPath": "img/home.png",
+      "selectedIconPath": "img/homeSelected.png"
+    },
+    {
+      "pagePath": "pages/lesson/lesson",
+      "text": "课程",
+      "iconPath": "img/lesson.png",
+      "selectedIconPath": "img/lessonSelected.png"
+    },
+    {
+      "pagePath": "pages/my/my",
+      "text": "我的",
+      "iconPath": "img/my.png",
+      "selectedIconPath": "img/mySelected.png"
+    }  
+    ]
   }
 }
