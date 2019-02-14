@@ -16,15 +16,60 @@ Page({
         tabnum: 2,
         tabitem: [
           {
-            "id": 1,
-            "type": "A",
-            "text": "一对一课程"
+            "id": 0,
+            "text": "私教班"
           },
           {
             "id": 1,
-            "type": "A",
-            "text": "一对多课程"
+            "text": "普通班"
           }
         ]}
-  })}
+  });
+
+    this.getPersonalLesson();
+  },
+
+  setTab:function(e){
+    const edata = e.currentTarget.dataset;
+    this.setData({
+      showtab: Number(edata.tabindex)
+    })
+    this.fetchTabData(edata.tabindex);
+  },
+
+  fetchTabData:function(index){
+    console.log(index);
+    switch(index){
+      case 0:
+        this.getPersonalLesson();
+        break;
+      case 1:
+        this.getNomalLesson();
+        break;
+    }
+  },
+
+  getPersonalLesson:function(){
+    let that = this;
+    const db = wx.cloud.database({
+      env: 'drummer-2019'
+    });
+    db.collection("lesson").where({
+      isPersonal:true
+    }).get({
+      success(res) {
+        that.setData({
+          personallessons: res.data
+        })
+      }
+    });
+
+  },
+
+  getNomalLesson:function(){
+    const db = wx.cloud.database({
+      env: 'drummer-2019'
+    })
+  }
+
 })

@@ -7,8 +7,8 @@
 	</view>
 </view>
 <view class="wode_item_wrap">
-	<view class="wode_item" wx:for="{{mode}}">
-		{{item}}
+	<view class="wode_item" wx:for="{{mode}}" wx:key = "{{item.id}}">
+		{{item.text}}
 		<span class="arrow_wrap"></span>
 	</view>
 </view>

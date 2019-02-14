@@ -9,13 +9,14 @@ scroll-view{
 .swiper{
   top: 0px;
   width: 100%;
-  height: 240px;	
+  height: 150px;	
 }
 .swiper swiper{
-	height: 240px;
+	height: 150px;
 }
 .slide-image{
   width: 100%;
+  height: 150px
 }
 .mobi_title{
 	font-size: 15px;
@@ -30,7 +31,7 @@ scroll-view{
 .mobi_icon{
 	padding: 0px 1.5px;
   border-radius: 1.5px;
-  background-color: #ff7777;
+  background-color: #69c3aa;
   position: relative;
   margin-right: 5px;
 }
@@ -124,11 +125,12 @@ swiper {
 }
 .prod-title {
     color: #353535;
+    width: 30%;
+    display: flex;
+    justify-content: center;   
+    padding-top: 3px 
 }
 .prod-money{
-    color: #e64340;
-}
-.slide-image{
-    width: 100%;
+    color: #777;
 }
 
