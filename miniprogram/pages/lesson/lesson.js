@@ -3,7 +3,7 @@ var app = getApp();
 
 Page({
   data: {
-
+    
   },
   cusImageLoad: function (e) {
     var that = this;
@@ -38,18 +38,19 @@ Page({
   },
 
   fetchTabData:function(index){
+    let that = this;
     console.log(index);
     switch(index){
       case 0:
-        this.getPersonalLesson();
+        that.getPersonalLesson();
         break;
       case 1:
-        this.getNomalLesson();
+        that.getNomalLesson();
         break;
     }
   },
 
-  getPersonalLesson:function(){
+  getPersonalLesson:function(){    
     let that = this;
     const db = wx.cloud.database({
       env: 'drummer-2019'
@@ -59,17 +60,30 @@ Page({
     }).get({
       success(res) {
         that.setData({
-          personallessons: res.data
-        })
+          personallessons: res.data,
+          personalHide: false
+        })        
       }
     });
 
   },
 
   getNomalLesson:function(){
+    let that = this;
     const db = wx.cloud.database({
       env: 'drummer-2019'
     })
+    db.collection("lesson").where({
+      isPersonal: false
+    }).get({
+      success(res) {
+        that.setData({
+          nomallessons: res.data,
+          personalHide: true
+        })
+      }
+    });
+
   }
 
 })

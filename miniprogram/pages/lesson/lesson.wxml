@@ -14,7 +14,7 @@
         </view>
     </view> -->
 
-    <view class="active_item" wx:for = "{{personallessons}}" wx:key = "{{item.id}}">
+    <view class="active_item" wx:for = "{{personallessons}}" wx:key = "{{item.id}}" hidden='{{personalHide}}'>
         <view>
             <image bindload="cusImageLoad" src="{{item.lessonpic[0]}}" style="width: {{imageWidth}};height: {{imageHeight}}"></image>
         </view>

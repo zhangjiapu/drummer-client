@@ -9,7 +9,7 @@
 		"newFeature": true
 	},
 	"appid": "wxfd577a19964a4610",
-	"projectname": "drummer",
+	"projectname": "drummer-client",
 	"libVersion": "2.2.5",
 	"condition": {
 		"search": {

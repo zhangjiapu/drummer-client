@@ -1,17 +1,7 @@
 Page({
-  data: {
-    
-    imgUrls: [
-      '/img/home.png',
-      '/img/lesson.png',
-      '/img/my.png'
-    ]
-  },
-  // scrollR: function (e) {
-  //   this.setData({
-  //     lists: this.data.lists.concat(this.data.list),
-  //   });
-  // },
+  data: {    
+   
+  }, 
 
   onShow: function (e) {  
     const db = wx.cloud.database({
@@ -20,10 +10,6 @@ Page({
     this.getStoreInfo(db);
     this.getNewsInfo(db);
   },
-
-  // scroll: function (e) {
-  //   this.scrollR(this.data.offset);
-  // },
 
   getNewsInfo:function(db){    
     let that = this;
