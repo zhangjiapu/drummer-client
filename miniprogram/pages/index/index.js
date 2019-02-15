@@ -1,36 +1,39 @@
 Page({
   data: {    
-   
+    newsloaded:false,
+    storeloaded:false
   }, 
 
-  onShow: function (e) {  
-    const db = wx.cloud.database({
-      env: 'drummer-2019'
-    })
-    this.getStoreInfo(db);
-    this.getNewsInfo(db);
+  onPullDownRefresh (){
+    
   },
 
-  getNewsInfo:function(db){    
+
+  onShow: function (e) {  
+   this.getInfo();   
+  },
+
+  getInfo:function(){   
+    const db = wx.cloud.database({
+      env: 'drummer-2019'
+    }) 
     let that = this;
     db.collection("news").get({
       success(res) {
         that.setData({
-          newsList: res.data
+          newsList: res.data,
+          newsloaded:true
         })
       }
-    })
-  },
-
-  getStoreInfo:function(db){
-    let that = this;
+    });
     db.collection("store").get({
       success(res) {
         that.setData({
-          storeList: res.data
+          storeList: res.data,
+          storeloaded: true
         })
       }
-    })
+    });
   },
 
   go2news:function(e){
@@ -46,5 +49,7 @@ Page({
       url: '../detail/storedetail/storedetail?id='+data.id
     })
   }
+
+  
 
 })

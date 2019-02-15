@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/home/home",
+    "pages/index/index",
     "pages/lesson/lesson",
     "pages/my/my",
     "pages/detail/storedetail/storedetail",
@@ -10,20 +10,21 @@
     "pages/detail/teacherdetail/teacherdetial",
     "pages/others/mycollection/mycollection",
     "pages/others/myorder/myorder",
-    "pages/others/contactUs/contactus",
-    "pages/others/aboutus/aboutus"
+    "pages/others/aboutus/aboutus",
+    "pages/others/contactus/contactus"
   ],
   "window": {
     "backgroundColor": "light",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#69c3aa",
     "navigationBarTitleText": "Tempo架子鼓",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "img/home.png",
         "selectedIconPath": "img/homeSelected.png"

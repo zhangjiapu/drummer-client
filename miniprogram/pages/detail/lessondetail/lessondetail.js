@@ -34,10 +34,19 @@ Page({
       env: 'drummer-2019'
     });
     let that = this;
+    // 获取课程信息
     db.collection("lesson").doc(this.data.id).get({
       success(res){
         that.setData({
           lesson:res.data
+        })
+      }
+    });
+    // 获取购买说明
+    db.collection("buySpecification").get({
+      success(res){
+        that.setData({
+          buySpecification:res.data[0]
         })
       }
     })

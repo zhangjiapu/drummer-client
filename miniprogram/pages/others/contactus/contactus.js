@@ -1,4 +1,4 @@
-// miniprogram/pages/others/contactUs/contactus.js
+// miniprogram/pages/others/contactus/contactus.js
 Page({
 
   /**

@@ -10,7 +10,7 @@
     box-shadow: 4px 1px 1px #cccccc;
     margin: 8px;
     padding: 16px;
-    position: relative;
+    
 }
 
 .tag {
@@ -45,4 +45,116 @@
     margin: auto;
     width: 100%;
     height: 1000rpx
+}
+.priceinfo-name{
+  display: flex;
+  float: left;
+  justify-content: center;
+}
+.priceinfo-price{
+  display: flex;
+  justify-content: center;
+  float: right;
+}
+
+.container-part{
+  display: flex;
+  flex-direction: column;
+}
+.price-detail-line{
+  display: flex;
+  flex-direction: row;
+}
+.part-margin{
+  margin-top: 10px;
+}
+.old-price{
+  font-size: 14px;
+  padding-left: 3px;
+  display: flex;
+  float: left;
+  justify-content: center;
+  color: #69c3aa;
+}
+.old-price-value{
+  font-size: 14px;
+  padding-left: 3px;
+  display: flex;
+  float: right;
+  justify-content: center;
+  color: #69c3aa;
+  text-decoration: line-through;
+}
+.current-price{
+  font-size: 14px;
+  padding-left: 3px;
+  display: flex;
+  float: left;
+  justify-content: center;
+  color:red;
+}
+.current-price-value{
+  font-size: 14px;
+  padding-left: 3px;
+  display: flex;
+  float: right;
+  justify-content: center;
+  color: red;
+  font-weight: bold;
+}
+
+.lessonname-icon{
+  padding: 0px 1.5px;
+  border-radius: 1.5px;
+  background-color: #69c3aa;
+  position: relative;
+  margin-right: 5px;
+}
+
+.operation-area{
+    width: 100%;
+    position: fixed;
+    bottom: 5px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    border-top: 1px solid #cccccc
+}
+.btn{   
+    border-radius: 70rpx;
+}
+.img-style{
+  width: 25px;
+  height: 25px;
+}
+.do-comment{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  justify-content: center;
+  color: #cccccc;
+  margin-left: 30px;
+
+}
+.contact-us{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  justify-content: center;
+  color: #cccccc;
+  margin-left: 30px;
+}
+.buy-button{
+  margin-left: 30px;
+  margin-right: 10px;
+  flex-grow: 1;
+  margin-top: 3px;
+  background: #69c3aa;
+  text-align: center;  
+  padding-top: 10px;
+  color: white;
+  border-radius: 5%
 }
