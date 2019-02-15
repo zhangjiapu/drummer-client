@@ -1,2 +1,48 @@
-<!--miniprogram/pages/detail/lessondetail/lessondetail.wxml-->
-<text>miniprogram/pages/detail/lessondetail/lessondetail.wxml</text>
+<view class="index">
+
+    <loading hidden="{{hidden}}">
+        {{loadingText}}
+    </loading>
+
+    <toast hidden="{{toastHidden}}" bindchange="onToastChanged">
+        {{toastText}}
+    </toast>
+
+    <!-- <modal confirm-text="保存" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="onSaveClick" bindcancel="onCancelClick">
+        <view > -->
+            <!--todo 这个地方有些问题，图片的适配没做好-->
+            <!-- <image class="modalImage" src="{{imageUrl}}" mode="aspectFill"></image>
+        </view>
+    </modal> -->
+
+    <view>
+        <image class="image" src="{{lesson.lessonpic[0]}}" mode="aspectFill" bindtap="onImageClick"></image>
+    </view>
+
+    <view class="frame">
+        <view class="tag">课程亮点</view>
+        <view wx:for="{{lesson.intro}}">
+            <view class="singleItem">{{item}}</view>
+        </view>
+    </view>
+
+    <view class="frame">
+        <view class="tag">班级信息</view>
+        <view wx:for="{{lesson.lessoninfo}}" wx:for-item="lessoninfo">
+            <view class="tag-second">{{lessoninfo.name}}</view>
+            <view class="singleItem" wx:for="{{lessoninfo.priceinfo}}" wx:for-item="priceinfo">{{priceinfo.name}} {{priceinfo.number}} {{priceinfo.price}}</view>
+        </view>
+    </view>
+
+<view class="frame" wx:for="{{data}}">
+        <view class="tag">班级信息</view>
+
+        <view wx:for="{{item.singleItems}}">
+            <view class="singleItem" href="{{item.src}}">{{index}}，{{item.title}}</view>
+        </view>
+    </view>
+
+    <!-- <view class="videoFrame">
+        <video class="video" src="http://v.youku.com/v_show/id_XMTczMjE2MTMzMg==.mp4"></video>
+    </view> -->
+</view>

@@ -1,11 +1,12 @@
-// miniprogram/pages/detail/lessondetail/lessondetail.js
+// miniprogram/pages/detail/newsdetail/newsdetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    hidden:true,
+    toastHidden:true,
   },
 
   /**
@@ -29,7 +30,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const db = wx.cloud.database({
+      env: 'drummer-2019'
+    });
+    let that = this;
+    db.collection("lesson").doc(this.data.id).get({
+      success(res){
+        that.setData({
+          lesson:res.data
+        })
+      }
+    })
   },
 
   /**
