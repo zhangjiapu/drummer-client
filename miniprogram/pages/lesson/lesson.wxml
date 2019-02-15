@@ -8,42 +8,47 @@
 				<view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
 			</view>
 
-    <!-- <view class="active_item_title">
-        <view class="active_title_wrap">
-            <view class="active_title">限时折扣</view>
-        </view>
-    </view> -->
-
-    <view class="active_item" wx:for = "{{personallessons}}" wx:key = "{{item.id}}" hidden='{{personalHide}}'>
+    <!-- 私教班列表展示 -->
+    <block wx:for-items="{{personallessons}}" wx:for-item="list" wx:key="_id" >
+    <view class="list" data-id="{{list._id}}" hidden='{{personalHide}}' bindtap='showLessonDetail'>
+      <view class="list-img">
+        <image class="video-img" mode="scaleToFill" src="{{list.lessonpic[0]}}"></image>
+      </view>
+      <view class="list-detail">
+        <view class="list-title"><text>{{list.name}}</text></view>
         <view>
-            <image bindload="cusImageLoad" src="{{item.lessonpic[0]}}" style="width: {{imageWidth}};height: {{imageHeight}}"></image>
+        <view class='text-price'>￥{{list.price}}</view>
         </view>
-        <view class="active_goods_name">
-            <label>{{item.name}}</label>
-            <text class="active_new_price">￥{{item.price}}</text>
-        </view>
-        <!-- <view class="active_item_infor">
-               
-        </view> -->
+        <view class="list-tag">
+        <view class="state" wx:if= "{{!isPersonal}}">一对一</view>
+        <view class="state" wx:elif= "{{isPersonal}}">一对多</view>
+        <view class="join"><text class="list-num">{{list.studentNumber}}</text>人报名</view></view>
+      </view> 
     </view>
+  </block>
+
+    <!-- 普通班列表展示 -->
+    <block wx:for-items="{{nomallessons}}" wx:for-item="list" wx:key="_id" >
+    <view class="list" data-id="{{list._id}}" bindtap='showLessonDetail'>
+      <view class="list-img">
+        <image class="video-img" mode="scaleToFill" src="{{list.lessonpic[0]}}"></image>
+      </view>
+      <view class="list-detail">
+        <view class="list-title"><text>{{list.name}}</text></view>
+        <view>
+        <view class='text-price'>￥{{list.price}}</view>
+        </view>
+        <view class="list-tag">
+        <view class="state" wx:if= "{{!isPersonal}}">一对一</view>
+        <view class="state" wx:elif= "{{isPersonal}}">一对多</view>
+        <view class="join"><text class="list-num">{{list.studentNumber}}</text>人报名</view></view>
+      </view> 
+    </view>
+  </block>
+  
 </view>
 
 
 <view>
-    <!-- <view class="active_item_title">
-        <view class="active_title_wrap">
-            <view class="active_title">参加团购</view>
-        </view>
-    </view> -->
-    <view class="active_item" wx:for = "{{nomallessons}}" wx:key="{{item.id}}">
-        <view>
-            <image bindload="cusImageLoad" src="{{item.lessonpic}}" style="width: {{imageWidth}};height: {{imageHeight}}"></image>
-        </view>
-        <view class="active_goods_name">
-            <label>{{lessontitle}}</label>
-        </view>
-        <view class="active_item_infor">
-            <text class="active_group_price">{{lessonprice}}</text>
-        </view>
-    </view>
+   
 </view>

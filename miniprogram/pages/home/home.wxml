@@ -1,10 +1,10 @@
 <scroll-view scroll-y="true" bindscroll="scroll">
   <view class="swiper">
     <swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000">
-      <block wx:for="{{newsList}}" wx:key="item.id">
-        <swiper-item>
+      <block wx:for="{{newsList}}" wx:key="_id">        
+        <swiper-item bindtap='go2news' data-id='{{item._id}}'>
           <image src="{{item.pic}}" class="slide-image"/>
-        </swiper-item>
+        </swiper-item>        
       </block>
     </swiper>
   </view>
@@ -14,14 +14,14 @@
   </view>
 
 <view class="container">
-    <view wx:for="{{storeList}}" class="product" wx:key= "{{item.id}}">
-        <navigator>
-            <image  src="{{item.storepic}}" class="pro-image" mode="widthFix" />
+    <view wx:for="{{storeList}}" class="product" wx:key= "_id" bindtap='go2store' data-id="{{item._id}}">
+        <view>
+            <image  src="{{item.storepic}}" class="pro-image"/>
             <view class="prod-content">
                 <!-- <text class="prod-title">  </text> -->
                 <text class="prod-money">{{item.name}}   {{item.intro}}</text>
             </view>
-        </navigator>
+        </view>
     </view>
 </view>  
 

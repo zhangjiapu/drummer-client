@@ -2,7 +2,16 @@
   "pages": [
     "pages/home/home",
     "pages/lesson/lesson",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/detail/storedetail/storedetail",
+    "pages/detail/lessondetail/lessondetail",
+    "pages/detail/newsdetail/newsdetail",
+    "pages/detail/orderdetail/orderdetail",
+    "pages/detail/teacherdetail/teacherdetial",
+    "pages/others/mycollection/mycollection",
+    "pages/others/myorder/myorder",
+    "pages/others/contactUs/contactus",
+    "pages/others/aboutus/aboutus"
   ],
   "window": {
     "backgroundColor": "light",
@@ -12,24 +21,25 @@
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/home/home",
-      "text": "首页",
-      "iconPath": "img/home.png",
-      "selectedIconPath": "img/homeSelected.png"
-    },
-    {
-      "pagePath": "pages/lesson/lesson",
-      "text": "课程",
-      "iconPath": "img/lesson.png",
-      "selectedIconPath": "img/lessonSelected.png"
-    },
-    {
-      "pagePath": "pages/my/my",
-      "text": "我的",
-      "iconPath": "img/my.png",
-      "selectedIconPath": "img/mySelected.png"
-    }  
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/homeSelected.png"
+      },
+      {
+        "pagePath": "pages/lesson/lesson",
+        "text": "课程",
+        "iconPath": "img/lesson.png",
+        "selectedIconPath": "img/lessonSelected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/mySelected.png"
+      }
     ]
   }
 }

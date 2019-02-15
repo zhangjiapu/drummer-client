@@ -31,7 +31,20 @@ Page({
         })
       }
     })
+  },
 
+  go2news:function(e){
+    let data = e.currentTarget.dataset
+    wx.navigateTo({
+      url: "../detail/newsdetail/newsdetail?id=" + data.id
+    })
+  },
+
+  go2store:function(e){
+    let data = e.currentTarget.dataset
+    wx.navigateTo({
+      url: '../detail/storedetail/storedetail?id='+data.id
+    })
   }
 
 })

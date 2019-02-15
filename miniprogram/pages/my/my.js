@@ -14,14 +14,10 @@ Page({
       },
       {
         id: 2,
-        text: "我的地址"
-      },
-      {
-        id: 3,
         text: "联系客服"
       },
       {
-        id: 4,
+        id: 3,
         text: "关于我们"
       }
     ]
@@ -39,5 +35,29 @@ Page({
         })
       }
     });
+  },
+
+  showdetail:function(e){
+    const data = e.currentTarget.dataset;
+    let key = data.key;
+    var url = ""
+    switch(key){
+      case 0:
+        url = "../others/mycollection/mycollection";
+        break;
+      case 1:
+        url = "../others/myorder/myorder";
+        break;
+      case 2:
+        url = "../others/contactus/contactus";
+        break;
+      case 3:
+        url = "../others/aboutus/aboutus";
+        break;      
+    }
+    wx.navigateTo({
+      url: url,
+    })
   }
+
 })

@@ -84,6 +84,12 @@ Page({
       }
     });
 
-  }
+  },
 
+  showLessonDetail:function(e){
+    let data = e.currentTarget.dataset;
+    wx.navigateTo({
+      url: '../detail/lessondetail/lessondetail?id='+data.id
+    })
+  }
 })

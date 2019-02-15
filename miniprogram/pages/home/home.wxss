@@ -8,8 +8,8 @@ scroll-view{
 }
 .swiper{
   top: 0px;
-  width: 100%;
   height: 150px;	
+  padding: 3px 10px 3px 10px
 }
 .swiper swiper{
 	height: 150px;
@@ -112,8 +112,9 @@ swiper {
     -moz-box-shadow:2rpx 2rpx 5rpx #969696;
     -webkit-box-shadow:2rpx 2rpx 5rpx #969696;
     box-shadow:2rpx 2rpx 5rpx #969696;
-    width: 100%
+    width: 100%;    
 }
+
 .prod-content{
     display: flex;
     justify-content: space-between;
