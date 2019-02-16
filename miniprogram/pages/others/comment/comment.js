@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
+    this.setData({  
       towho:options.towho,
       whoid:options.whoid,
       title:options.title
@@ -28,23 +28,14 @@ Page({
 
   submitComment:function(e){
     let content = e.detail.value.content;
-    if (content == ""){
-      wx.showToast({
-        title: '内容不能为空',
-        image: '../../../../img/warm.png',
-        duration: 3000,
-        success: function(res) {
-          wx.hideToast();
-        }
-      })
-    }else{
+    if (content != ""){
       let time = new Date();
       let data = {
         content: content,
         time: time,
         towho: this.data.towho,
         whoid: this.data.whoid,
-        avatarurl: getApp().globalData.avatarurl,
+        avatarurl: getApp().globalData.avatarUrl,
         nickName: getApp().globalData.nickName,
       };
 
@@ -58,12 +49,14 @@ Page({
             title: '提交成功',
             icon: 'success',
             duration: 3000,
-            success: function (res) {
-              wx.hideToast();
+            success(res){
+              wx.navigateBack({
+                delta: 1,
+              })
             }
           })
         }
-      })
+      });
     }
   }
 })

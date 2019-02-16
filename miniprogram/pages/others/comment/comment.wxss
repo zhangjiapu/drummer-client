@@ -5,12 +5,10 @@
 
 }
 .textarea-wrp{
-  border-top: 1px solid #cccccc;
-  border-bottom: 1px solid #cccccc;
+  border: 1px solid #cccccc; 
   height: 100px;
   margin-top: 10px;
   font-size: 14px;
-  padding: 0 5px 0 5px
 }
 .do-comment{
   border-radius: 5%;
@@ -20,5 +18,9 @@
   font-size: 14px;
   color: white;
   margin: 25px 15px 0px 15px;
+  height: 40px;
 }
-
+.container{
+  display: flex;
+  flex-direction: column;
+}
