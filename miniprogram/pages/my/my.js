@@ -1,4 +1,4 @@
-var app = getApp();
+const app = getApp();
 
 Page({
   data: {
@@ -22,19 +22,12 @@ Page({
       }
     ]
   },
-  onLoad: function () {
-    var that = this;
-    wx.login({
-      success: function () {
-        wx.getUserInfo({
-          success: function (res) {
-            that.setData({
-              userInfo: res.userInfo
-            })
-          }
-        })
-      }
-    });
+ 
+  onShow:function(){
+    this.setData({
+      avatarUrl: app.globalData.avatarUrl,
+      nickName: app.globalData.nickName
+    })
   },
 
   showdetail:function(e){

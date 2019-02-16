@@ -1,0 +1,24 @@
+.comment-title{
+  font-size: 16px;
+  font-weight: 600;  
+  margin: 10px 5px 5px 5px;
+
+}
+.textarea-wrp{
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  height: 100px;
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 0 5px 0 5px
+}
+.do-comment{
+  border-radius: 5%;
+  background: #69c3aa;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  color: white;
+  margin: 25px 15px 0px 15px;
+}
+

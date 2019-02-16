@@ -11,7 +11,8 @@
     "pages/others/mycollection/mycollection",
     "pages/others/myorder/myorder",
     "pages/others/aboutus/aboutus",
-    "pages/others/contactus/contactus"
+    "pages/others/contactus/contactus",
+    "pages/others/comment/comment"
   ],
   "window": {
     "backgroundColor": "light",

@@ -89,15 +89,15 @@
     </view>
 
     <view class='operation-area'>
-      <view class='do-comment'>
+      <view class='do-comment' bindtap='go2comment'>
         <image src='../../../img/comment.png' class='img-style'></image>
         <label>点评</label>
       </view>
-      <view class='contact-us'>
+      <view class='contact-us'bindtap = "go2contact">
         <image src='../../../img/contactus.png' class='img-style'></image>
         <label>咨询</label>
       </view>
-      <view class='buy-button'>
+      <view class='buy-button' bindtap='makeAppointment'>
         预约课程
       </view>      
     </view>   

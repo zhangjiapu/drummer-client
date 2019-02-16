@@ -85,5 +85,20 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  go2comment:function(){
+    let url = "../../others/comment/comment?towho="+2+"&whoid="+this.data.lesson._id+"&title="+this.data.lesson.name;
+    wx.navigateTo({
+      url: url
+    })
+  },
+
+  go2contact:function(){
+
+  },
+
+  makeAppointment:function(){
+
   }
 })
