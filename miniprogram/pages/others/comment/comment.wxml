@@ -1,8 +1,8 @@
 <form bindsubmit="submitComment">
-  <view class='container'>
+  <view>
   <view class="comment-title">{{title}}</view>
-  <view class="textarea-wrp">
-      <textarea placeholder='留言将由小程序筛选后显示，对所有人可见' name="content"/>
+  <view>
+      <textarea placeholder='留言将由小程序筛选后显示，对所有人可见' name="content" class='textarea-wrp'/>
   </view>
   <view>
   <button class="do-comment" form-type="submit">提交</button>

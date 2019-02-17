@@ -1,0 +1,30 @@
+.success-page{
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+  flex-direction: column;
+}
+.success-text{
+  font-size: 16px;
+  color: #cccccc;
+  justify-content: center;
+  margin-top: 10px;
+}
+.success-back{
+  font-size: 16px;
+  color: #69c3aa;
+  align-content: center;
+  border: 1px solid #cccccc;
+  margin-top: 50px;
+  padding: 3px 20px;
+  border-radius: 5%;
+  background: white;
+
+}
+.success-img{
+  width: 50px;
+  height: 50px;
+}

@@ -8,11 +8,13 @@
     "pages/detail/newsdetail/newsdetail",
     "pages/detail/orderdetail/orderdetail",
     "pages/detail/teacherdetail/teacherdetial",
-    "pages/others/mycollection/mycollection",
     "pages/others/myorder/myorder",
     "pages/others/aboutus/aboutus",
     "pages/others/contactus/contactus",
-    "pages/others/comment/comment"
+    "pages/others/comment/comment",
+    "pages/others/successpage/successpage",
+    "pages/others/makeorder/makeorder",
+    "pages/others/mycomment/mycomment"
   ],
   "window": {
     "backgroundColor": "light",

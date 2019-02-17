@@ -1,0 +1,32 @@
+  <form class='changeInfo' bindsubmit='makeOrder'>
+  
+  <view class="mobi_title">
+    <text class="mobi_icon"></text>
+    <text>真实姓名</text>
+  </view>
+  <view class='changeInfoName'>
+     <input placeholder='请输入姓名' name = "name"/> 
+  </view>
+  
+  <view class="mobi_title">
+    <text class="mobi_icon"></text>
+    <text>有效手机号</text>
+  </view>
+  <view class='changeInfoName'>
+     <input placeholder='请输入手机号' name="phone" type='number'/> 
+  </view>
+
+
+  <view class="mobi_title">
+    <text class="mobi_icon"></text>
+    <text>备注信息</text>
+  </view>
+  <view class='tips-info'>
+     <textarea placeholder='其他要求写在这里~' name="note"/> 
+  </view>
+  <button class='changeBtn' form-type='submit'>提交订单</button>
+
+  
+  </form>
+  
+  

@@ -6,11 +6,11 @@ Page({
     mode:[
       {
         id:0,
-        text:"我的收藏"
+        text:"我的订单"
       },
       {
         id: 1,
-        text: "我的订单"
+        text: "我的评论"
       },
       {
         id: 2,
@@ -35,10 +35,10 @@ Page({
     let key = data.key;
     var url = ""
     switch(key){
-      case 0:
-        url = "../others/mycollection/mycollection";
-        break;
       case 1:
+        url = "../others/mycomment/mycomment";
+        break;
+      case 0:
         url = "../others/myorder/myorder";
         break;
       case 2:

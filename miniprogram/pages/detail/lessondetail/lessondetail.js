@@ -7,6 +7,7 @@ Page({
   data: {
     hidden:true,
     toastHidden:true,
+    phoneNumber:"13125145155"
   },
 
   /**
@@ -17,13 +18,6 @@ Page({
       id: options.id,
     })
     console.log(options.id)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
   },
 
   /**
@@ -53,34 +47,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
@@ -88,17 +54,25 @@ Page({
   },
 
   go2comment:function(){
-    let url = "../../others/comment/comment?towho="+2+"&whoid="+this.data.lesson._id+"&title="+this.data.lesson.name;
+    getApp().globalData.commentInfo.towho = "2";
+    getApp().globalData.commentInfo.whoid = this.data.lesson._id;
+    getApp().globalData.commentInfo.title = this.data.lesson.name;    
     wx.navigateTo({
-      url: url
+      url: "../../others/comment/comment"
     })
   },
 
   go2contact:function(){
-
+    let that = this;
+    wx.makePhoneCall({
+      phoneNumber: that.data.phoneNumber,
+    })
   },
 
   makeAppointment:function(){
-
+    let that = this;
+    wx.navigateTo({
+      url: "../../others/makeorder/makeorder?lessonname=" +that.data.lesson.name,
+    })
   }
 })

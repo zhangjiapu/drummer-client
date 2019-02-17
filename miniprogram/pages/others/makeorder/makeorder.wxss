@@ -1,0 +1,82 @@
+page{
+  height: 100%;
+  width: 100%;
+}
+.changeInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 90%;
+  margin: 50rpx auto;
+}
+.changeInfoName{
+  position: relative;
+  height: 80rpx;
+  width: 100%;
+  border-radius: 20rpx;
+  background: #fff;
+  margin-bottom: 30rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  border: 1px solid #69c3aa;
+  font-size: 14px;
+}
+.tips-info{
+  position: relative;
+  height: 150rpx;
+  width: 100%;
+  border-radius: 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  border: 1px solid #69c3aa;
+  font-size: 14px;
+}
+
+.codeBtn{
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #bbb;
+  width: 30%;
+  font-size: 26rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.changeInfoName input{
+  width: 100%;
+  height:100%;
+}
+.changeBtn{
+  width: 40%;
+  height: 100rpx;
+  background: #69c3aa;
+  color: #fff;
+  border-radius: 50rpx;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -20%;
+  line-height: 100rpx;
+}
+
+.mobi_title{
+	font-size: 15px;
+	color: #777;
+  line-height: 110%;
+  font-weight: normal;
+	width: 100%;
+  padding: 10px;
+  background-color: #f3f3f3;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 3px;
+}
+.mobi_icon{
+	padding: 0px 1.5px;
+  border-radius: 1.5px;
+  background-color: #69c3aa;
+  position: relative;
+  margin-right: 5px;
+}

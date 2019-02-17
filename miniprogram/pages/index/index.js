@@ -1,11 +1,3 @@
-App({
-  globalData:{
-    avatarUrl:"",
-    nickName:""
-  }  
-})
-
-
 Page({
   data: {    
     newsloaded:false,
@@ -35,11 +27,18 @@ Page({
         wx.getUserInfo({
           success: function (res) {
             getApp().globalData.avatarUrl =  res.userInfo.avatarUrl;
-            getApp().globalData.nickName = res.userInfo.nickName;            
+            getApp().globalData.nickName = res.userInfo.nickName;
           }
         })
       }
     });
+    wx.cloud.callFunction({
+      name:"getUserId",
+      success(res){
+        getApp().globalData.userid = res.result.openid;
+      }
+    })
+
   },
 
   onShow: function (e) {  
@@ -72,7 +71,8 @@ Page({
   go2news:function(e){
     let data = e.currentTarget.dataset
     wx.navigateTo({
-      url: "../detail/newsdetail/newsdetail?id=" + data.id
+      // url: "../detail/newsdetail/newsdetail?id=" + data.id
+      url:"../others/makeorder/makeorder",
     })
   },
 

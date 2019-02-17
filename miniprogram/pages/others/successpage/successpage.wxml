@@ -1,0 +1,7 @@
+<view>
+<view class="success-page">
+<image src='../../../img/success.png' class='success-img'></image>
+<text class='success-text'>已成功</text>
+<button class='success-back' bindtap='back'>点击返回</button>
+</view>
+</view>

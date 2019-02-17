@@ -114,11 +114,11 @@
 .operation-area{
     width: 100%;
     position: fixed;
-    bottom: 5px;
+    bottom: 3px;
     background: #ffffff;
     display: flex;
     flex-direction: row;
-    height: 50px;
+    height: 60px;
     border-top: 1px solid #cccccc
 }
 .btn{   
@@ -135,7 +135,7 @@
   font-size: 15px;
   justify-content: center;
   color: #cccccc;
-  margin-left: 30px;
+  margin-left: 10px;
 
 }
 .contact-us{
@@ -145,16 +145,35 @@
   font-size: 15px;
   justify-content: center;
   color: #cccccc;
-  margin-left: 30px;
+  
 }
 .buy-button{
-  margin-left: 30px;
+  margin-left: 10px;
   margin-right: 10px;
   flex-grow: 1;
   margin-top: 3px;
   background: #69c3aa;
   text-align: center;  
-  padding-top: 10px;
+  padding-top: 15px;
   color: white;
   border-radius: 5%
+}
+.contact-button{
+  background: transparent;
+  border: 0 solid transparent;
+}
+.contact-button-innerview{
+  display: flex;
+  flex-direction: column;
+}
+.contact-button-innerview-label{
+  font-size: 15px;
+}
+button::after{
+border: none;
+}
+
+.comment-button{
+  background: transparent;
+  border: 0 solid transparent;
 }

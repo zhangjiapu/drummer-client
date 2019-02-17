@@ -12,10 +12,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({  
-      towho:options.towho,
-      whoid:options.whoid,
-      title:options.title
+    this.setData({
+      title:getApp().globalData.commentInfo.title
     })
   },
 
@@ -27,6 +25,7 @@ Page({
   },
 
   submitComment:function(e){
+    let that = this;
     let content = e.detail.value.content;
     if (content != ""){
       let time = new Date();
@@ -42,19 +41,18 @@ Page({
       const db = wx.cloud.database({
         env: 'drummer-2019'
       });
+
+      wx.showLoading({
+        title: '提交中',
+      })
+
       db.collection("comment").add({
         data: data,
         success(res) {
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success',
-            duration: 3000,
-            success(res){
-              wx.navigateBack({
-                delta: 1,
-              })
-            }
-          })
+         wx.hideLoading();
+         wx.redirectTo({
+             url: '../successpage/successpage' 
+         })
         }
       });
     }

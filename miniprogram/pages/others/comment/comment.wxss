@@ -9,6 +9,7 @@
   height: 100px;
   margin-top: 10px;
   font-size: 14px;
+  width: 100%;
 }
 .do-comment{
   border-radius: 5%;
