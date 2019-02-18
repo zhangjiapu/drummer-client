@@ -72,7 +72,7 @@ Page({
   makeAppointment:function(){
     let that = this;
     wx.navigateTo({
-      url: "../../others/makeorder/makeorder?lessonname=" +that.data.lesson.name,
+      url: "../../others/makeorder/makeorder?lessonname=" + that.data.lesson.name + "&lessonid=" + that.data.lesson._id + "&lessonprice=" + that.data.lesson.price,
     })
   }
 })

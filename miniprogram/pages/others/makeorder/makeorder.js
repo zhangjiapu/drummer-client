@@ -14,6 +14,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       lessonname : options.lessonname,
+      lessonid:options.lessonid,
+      lessonprice:options.lessonprice
     })
   },
 
@@ -51,18 +53,22 @@ Page({
         note = "无"
       }
 
-      let ordertime = new Date();
+      let currentDate = new Date();
+      let ordertime = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDay() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
       let userid = getApp().globalData.userid;
       const db = wx.cloud.database({
         env: 'drummer-2019'
       });
       let data = {
-        name:that.data.lessonname + "(手机号 :"+phone+") " +"（订单时间"+ordertime+")",
+        name:that.data.lessonname,
         username:name,
         time:ordertime,
         notice:note,
         userid:getApp().globalData.userid,
         phone:phone,
+        status:1, //刚提交的订单 处于待受理状态
+        lessonid:that.data.lessonid,
+        lessonprice:that.data.lessonprice
       }
       db.collection("order").add({
         data: data,

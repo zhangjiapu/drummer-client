@@ -1,1 +1,203 @@
-/* miniprogram/pages/others/myorder/myorder.wxss */
+.active_item_title{
+    padding: 15px;
+    background-color: #FFF;
+}
+.active_title_wrap {
+    text-align: center;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000;
+    width: 80px;
+    margin: 0 auto;
+}
+.active_title {
+    display: inline-block;
+    font-size: 14px;
+    padding: 0 10px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid #000;
+    font-weight: 700;
+}
+.active_goods_name {
+    background-color: #FFF;
+    padding: 7px 10px;
+    font-size: 14px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+.active_item_infor {
+    background-color: #FFF;
+    font-size: 14px;
+    padding: 0 10px;
+    padding-bottom: 10px;
+}
+.active_new_price {
+    color: #FF0000;
+    float: right;
+    position: fixed;
+}
+.active_old_price {
+    font-size: 12px;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+.active_time {
+    float: right;
+    font-size: 12px;
+}
+.active_block {
+    margin-bottom: 10px;
+}
+.active_group_price {
+    font-size: 12px;
+    color: #FF0000;
+}
+
+.tab-nav{
+	height: 80rpx;
+	background: #fff;
+	border-bottom: 1rpx solid #ddd;
+	display: flex;
+	line-height: 79rpx;
+	position: relative;
+}
+
+.tab-nav text.active{
+	color: #f7982a;
+}
+
+.tab-line{
+	position: absolute;
+	left: 0;
+	bottom: -1rpx;
+	height: 4rpx;
+	background: #69c3aa;
+	transition: all 0.3s;
+  margin-bottom: 3px;
+}
+.tab-text{
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+	color: #777;
+}
+
+/**index.wxss**/
+page{
+	height: 100%;
+	background-color: #efeff4;
+}
+scroll-view{
+  height: 100%;
+}
+.swiper{
+  top: 0px;
+  width: 100%;
+  height: 240px;	
+}
+.swiper swiper{
+	height: 240px;
+}
+.slide-image{
+  width: 100%;
+}
+.mobi_title{
+	font-size: 15px;
+	color: #777;
+  line-height: 110%;
+  font-weight: normal;
+	width: 100%;
+  padding: 10px;
+  background-color: #f3f3f3;
+  position: relative;
+}
+.mobi_icon{
+	padding: 0px 1.5px;
+  border-radius: 1.5px;
+  background-color: #ff7777;
+  position: relative;
+  margin-right: 5px;
+}
+/*list*/
+.list{	
+	width: 100%;
+	padding: 0 20px 0 0;	
+	background-color: #fff;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.list-img{
+  position: relative;
+	float: left;
+	width: 120px;
+}
+.list-img .video-img{
+	width: 120px;
+	height: 120px;
+}
+.list-detail{
+  margin-top: 15px;  
+  margin-right: 10px;
+  display: inline-block;
+  margin-left: 10px
+}
+.list-title{
+  display: flex;
+  flex-direction: row;
+}
+.list-title-text{
+  font-size: 18px;
+  font-weight: 400;
+}
+.list-tag view.state{
+    display: block;
+    font-size: 11px;
+    color: #81aaf7;
+    width: 50px;
+    padding: 2px;
+    border: 1px solid #93b9ff;
+    border-radius: 2px;
+    text-align: center;
+		float: left;
+    margin-top: 10px
+}
+.list-tag .join{
+	font-size: 13px;
+  line-height: 120%;
+  color: #bbb;
+  float: right;
+  display: block;
+  justify-content: center;
+  margin: 20px 0 0 55px;
+  }
+.list-tag .list-num{
+	font-size: 16px;
+  color: #ff6666;
+}
+.list-info{
+	font-size: 13px;
+  color: #bbb;
+  line-height: 110%;
+  font-weight: normal;
+	margin-top: 30px;
+}
+.text-price{
+  color: #69c3aa;
+  font-size: 18px;
+  padding-top: 10px;
+  margin-top: 5px;
+}
+.mobi_icon{
+	padding: 0px 1.5px;
+  border-radius: 1.5px;
+  background-color: #69c3aa;
+  position: relative;
+  margin-right: 5px;
+}
+.more-img{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 30px;
+}

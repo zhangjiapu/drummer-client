@@ -72,7 +72,7 @@ Page({
     let data = e.currentTarget.dataset
     wx.navigateTo({
       // url: "../detail/newsdetail/newsdetail?id=" + data.id
-      url:"../others/makeorder/makeorder",
+      url:"../others/myorder/myorder",
     })
   },
 
