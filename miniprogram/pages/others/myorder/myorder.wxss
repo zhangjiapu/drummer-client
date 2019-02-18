@@ -120,12 +120,11 @@ scroll-view{
 }
 /*list*/
 .list{	
-	width: 100%;
-	padding: 0 20px 0 0;	
 	background-color: #fff;
-  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
+  padding: 10px 20px 20px 0;
+  border: 1px solid #ccc;
 }
 .list-img{
   position: relative;
@@ -150,31 +149,20 @@ scroll-view{
   font-size: 18px;
   font-weight: 400;
 }
-.list-tag view.state{
-    display: block;
-    font-size: 11px;
-    color: #81aaf7;
-    width: 50px;
-    padding: 2px;
-    border: 1px solid #93b9ff;
-    border-radius: 2px;
-    text-align: center;
-		float: left;
-    margin-top: 10px
+.state{
+    position: absolute;
+    right: 10px;
+    font-weight: 300;
+    font-size: 13px;
 }
-.list-tag .join{
-	font-size: 13px;
-  line-height: 120%;
+.time-tag {
+	font-size: 15px;  
   color: #bbb;
-  float: right;
   display: block;
   justify-content: center;
-  margin: 20px 0 0 55px;
+  margin: 5px 0 0 15px;
   }
-.list-tag .list-num{
-	font-size: 16px;
-  color: #ff6666;
-}
+
 .list-info{
 	font-size: 13px;
   color: #bbb;
@@ -182,11 +170,10 @@ scroll-view{
   font-weight: normal;
 	margin-top: 30px;
 }
-.text-price{
-  color: #69c3aa;
-  font-size: 18px;
-  padding-top: 10px;
-  margin-top: 5px;
+.order-detail{
+  color: rgb(51, 45, 45);
+  font-size: 15px;
+  padding-top: 5px;  
 }
 .mobi_icon{
 	padding: 0px 1.5px;
@@ -198,6 +185,14 @@ scroll-view{
 .more-img{
   width: 20px;
   height: 20px;
-  position: absolute;
-  right: 30px;
+  margin-top: 3px;
+  margin-left: 3px;
+}
+.order-detail-area{
+  margin-top: 5px;
+  margin-left: 15px;
+}
+
+.order-detail-value{
+  margin-left: 10px;
 }

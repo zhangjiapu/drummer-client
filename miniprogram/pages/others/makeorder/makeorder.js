@@ -68,7 +68,7 @@ Page({
         phone:phone,
         status:1, //刚提交的订单 处于待受理状态
         lessonid:that.data.lessonid,
-        lessonprice:that.data.lessonprice
+        price:that.data.lessonprice
       }
       db.collection("order").add({
         data: data,

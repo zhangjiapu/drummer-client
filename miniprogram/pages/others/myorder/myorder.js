@@ -74,15 +74,13 @@ Page({
         })
       }
     });
-
-    console.log(this.data.orderstatus)
   },
 
 
   showOrderDetail: function (e) {
     let data = e.currentTarget.dataset;
     wx.navigateTo({
-      url: '../detail/orderdetail/orderdetail?id=' + data.id
+      url: '../../detail/lessondetail/lessondetail?id=' + data.lessonid
     })
   }
 })

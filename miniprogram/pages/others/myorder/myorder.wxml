@@ -10,7 +10,7 @@
 
     <!-- 订单展示 -->
     <block wx:for-items="{{myorders}}" wx:for-item="order" wx:key="_id" >
-    <view class="list" data-id="{{order._id}}" bindtap='showOrderDetail'>
+    <view class="list" data-lessonid="{{order.lessonid}}" bindtap='showOrderDetail'>
       <!-- <view class="list-img">
         <image class="video-img" mode="scaleToFill" src="{{order.lessonpic[0]}}"></image>
       </view> -->
@@ -19,16 +19,30 @@
           <text class="mobi_icon"></text>
           <text class='list-title-text'>{{order.name}}</text>          
           <image src='../../../img/more.png' class='more-img'/>
+          <view class="state">{{orderstatus[order.status]}}</view>
         </view>                
       </view>  
       
-      <view>
-        <view class='text-price'>￥{{order.price}}</view>
-      </view>
-      <view class="list-tag">        
-        <view class="state">{{orderstatus[order.status]}}</view>
-        <view class="join"><text class="list-num">{{order.time}}</text></view>
-      </view>     
+      <!-- 订单详情 -->
+      <view class='order-detail-area'>
+        <view>
+          <view class='order-detail'>
+            本单价格:<text class='order-detail-value'>￥{{order.price}}</text>
+          </view>
+        </view>
+          <view class="order-detail">                      
+            下单时间:<text class='order-detail-value'>{{order.time}}</text>
+          </view> 
+          <view class="order-detail">                      
+            订单编号:<text class='order-detail-value'>{{order._id}}</text>
+          </view> 
+          <view class="order-detail">                      
+            联系方式:<text class='order-detail-value'>{{order.phone}}</text>
+          </view> 
+          <view class="order-detail">                      
+            备注信息:<text class='order-detail-value'>{{order.notice}}</text>
+          </view> 
+      </view>   
     </view>
   </block>  
   

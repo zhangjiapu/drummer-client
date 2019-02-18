@@ -30,9 +30,16 @@ Page({
     })
   },
 
+  contactUs:function(){
+    wx.makePhoneCall({
+      phoneNumber: getApp().globalData.customerService,
+    })
+  },
+
   showdetail:function(e){
     const data = e.currentTarget.dataset;
     let key = data.key;
+    let that = this;
     var url = ""
     switch(key){
       case 1:
@@ -42,8 +49,8 @@ Page({
         url = "../others/myorder/myorder";
         break;
       case 2:
-        url = "../others/contactus/contactus";
-        break;
+        that.contactUs();
+        return;
       case 3:
         url = "../others/aboutus/aboutus";
         break;      

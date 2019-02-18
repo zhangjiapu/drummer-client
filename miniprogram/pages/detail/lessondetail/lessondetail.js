@@ -7,7 +7,6 @@ Page({
   data: {
     hidden:true,
     toastHidden:true,
-    phoneNumber:"13125145155"
   },
 
   /**
@@ -65,7 +64,7 @@ Page({
   go2contact:function(){
     let that = this;
     wx.makePhoneCall({
-      phoneNumber: that.data.phoneNumber,
+      phoneNumber: getApp().globalData.customerService,
     })
   },
 

@@ -15,6 +15,7 @@ App({
       avatarUrl: "",
       nickName: "",
       userid: "",
+      customerService:"13983509193",
       commentInfo: {
         towho: "",
         whoid: "",
