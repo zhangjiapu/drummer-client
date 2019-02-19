@@ -1,66 +1,101 @@
-// miniprogram/pages/others/mycomment/mycomment.js
+var app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    showtab: 0,    
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad: function () {
+    this.setData({
+      tabnav: {
+        tabnum: 4,
+        tabitem: [
+          {
+            "id": 0,
+            "text": "全部"
+          },
+          {
+            "id": 1,
+            "text": "教师评论"
+          },
+          {
+            "id": 2,
+            "text": "店铺评论"
+          },
+          {
+            "id": 3,
+            "text": "课程评论 "
+          }
+        ]
+      }
+    });
 
+    this.getComments();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  setTab: function (e) {
+    const edata = e.currentTarget.dataset;
+    this.setData({
+      showtab: Number(edata.tabindex)
+    })
+    this.getComments();
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+  getComments: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
+    let that = this;
+    const db = wx.cloud.database({
+      env: 'drummer-2019'
+    });
 
+    // 根据tab页构建不同的查询条件（全部的时候不需要status过滤条件）
+    let condition = {}
+    if (this.data.showtab != 0) {
+      condition = {
+        towho: (this.data.showtab - 1).toString(),
+        userid: getApp().globalData.userid
+      }
+    } else {
+      condition = {
+        userid: getApp().globalData.userid
+      }
+    }
+    // 数据库 查询
+    db.collection("comment").where(condition).get({
+      success(res) {        
+        that.setData({
+          mycomments:res.data
+        });
+        wx.hideLoading();
+      }
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  showCommentDetail: function (e) {
+    let commentedType = e.currentTarget.dataset.towho;
+    let commentedObjId = e.currentTarget.dataset.whoid;
+    switch(commentedType){
+      //教师
+      case "0":
+        wx.navigateTo({
+          url: '../../detail/teacherdetail/teacherdetail?id=' + commentedObjId,
+        })
+      break;
+      //店铺
+      case "1":
+      wx.navigateTo({
+        url: '../../detail/storedetail/storedetail?id=' + commentedObjId,
+      })
+      break;
+      //课程
+      case "2":
+        wx.navigateTo({
+          url: '../../detail/lessondetail/lessondetail?id = ' + commentedObjId,
+        })
+      break;
+    }
   }
 })

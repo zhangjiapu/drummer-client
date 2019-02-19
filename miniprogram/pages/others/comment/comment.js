@@ -28,14 +28,17 @@ Page({
     let that = this;
     let content = e.detail.value.content;
     if (content != ""){
-      let time = new Date();
+      let currentDate = new Date();
+      let time = currentDate.getFullYear() + "-" + (currentDate.getMonth() + 1) + "-" + currentDate.getDay() + " " + currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getSeconds();
       let data = {
         content: content,
         time: time,
-        towho: this.data.towho,
-        whoid: this.data.whoid,
-        avatarurl: getApp().globalData.avatarUrl,
+        towho: getApp().globalData.commentInfo.towho,
+        whoid: getApp().globalData.commentInfo.whoid,
+        avatarurl: getApp().globalData.avatarurl,
         nickName: getApp().globalData.nickName,
+        userid:getApp().globalData.userid,
+        commentedName:getApp().globalData.commentInfo.title
       };
 
       const db = wx.cloud.database({

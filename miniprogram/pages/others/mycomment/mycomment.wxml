@@ -1,2 +1,44 @@
-<!--miniprogram/pages/others/mycomment/mycomment.wxml-->
-<text>miniprogram/pages/others/mycomment/mycomment.wxml</text>
+<view class="active_block">
+
+    <!-- 页签tab -->
+    <view class="tab-nav">
+      <view wx:for="{{tabnav.tabitem}}" bindtap="setTab" class="{{showtab==index?'active':''}}" data-tabindex="{{index}}" wx:key="{{item.id}}" style='width:25%'>
+      <text class = "tab-text">{{item.text}}</text>
+      </view>				
+				<view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+			</view>
+
+    <!-- 订单展示 -->
+    <block wx:for-items="{{mycomments}}" wx:for-item="comment" wx:key="_id" >
+    <view class="list" data-lessonid="{{comment.whoid}}" data-towho='{{comment.towho}}' bindtap='showCommentDetail'>
+      <!-- <view class="list-img">
+        <image class="video-img" mode="scaleToFill" src="{{order.lessonpic[0]}}"></image>
+      </view> -->
+      <view class="list-detail">        
+        <view class="list-title">          
+          <text class='list-title-text'>{{comment.commentedName}}</text>          
+          <image src='../../../img/more.png' class='more-img'/>
+          
+        </view>                
+      </view>  
+      
+      <!-- 订单详情 -->
+      <view class='order-detail-area'>
+        <view>
+          <view class='order-detail'>
+            <text class='order-detail-value'>{{comment.content}}</text>
+          </view>
+        </view>  
+
+        <view class="state">{{comment.time}}</view>
+
+      </view>   
+    </view>
+  </block>  
+  
+</view>
+
+
+<view>
+   
+</view>
