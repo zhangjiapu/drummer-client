@@ -1,2 +1,84 @@
-<!--miniprogram/pages/detail/storedetail/storedetail.wxml-->
-<text>miniprogram/pages/detail/storedetail/storedetail.wxml</text>
+<view class="index">
+    <!-- <modal confirm-text="保存" cancel-text="取消" hidden="{{modalHidden}}" bindconfirm="onSaveClick" bindcancel="onCancelClick">
+        <view > -->
+            <!--todo 这个地方有些问题，图片的适配没做好-->
+            <!-- <image class="modalImage" src="{{imageUrl}}" mode="aspectFill"></image>
+        </view> 
+    </modal> -->
+
+    <!-- <view class="videoFrame">
+        <video class="video" src="http://v.youku.com/v_show/id_XMTczMjE2MTMzMg==.mp4"></video>
+    </view> -->
+
+    <view>
+        <image class="image" src="{{store.storepic[0]}}" mode="aspectFill"></image>
+    </view>
+
+    <view class='store-button-area'>
+        <view class='store-button-area-left'>
+          <label class='store-button-area-label'>课程</label>
+          <text class='store-button-area-text'>满足基本乐理、演奏技能需求的团体课程</text>
+        </view>
+        <view class='store-button-area-right'>
+          <view>约课</view>
+        </view>
+    </view>
+
+    <view class='store-button-area'>
+        <view class='store-button-area-left'>
+          <label class='store-button-area-label'>私教</label>
+          <text class='store-button-area-text'>TEMPO教师为你定制的1V1专属课程</text>
+        </view>
+        <view class='store-button-area-right'>
+          <view>查看</view>
+        </view>
+    </view>
+
+    <view class='store-button-area'>
+        <view class='store-button-area-left'>
+          <label class='store-button-area-label'>活动</label>
+          <text class='store-button-area-text'>趣味活动，学习娱乐两不误</text>
+        </view>
+        <view class='store-button-area-right'>
+          <view>查看</view>
+        </view>
+    </view>
+
+    <view class="frame">
+        <view class="tag">店铺介绍</view>        
+            <view class="singleItem">{{store.intro}}</view>        
+    </view>
+
+    <view class="frame">
+        <view class="tag">地址</view>        
+            <view class="singleItem">{{store.locationDetail}}</view>
+            <view class ="checkInMap" bindtap='showMap'> 查看地图</view>        
+    </view>
+
+    <view class="frame">
+        <view class="tag">注意事项</view>        
+            <view class="singleItem">
+              <text>有效期：{{buySpecification.validPeriod}}</text>
+            </view>  
+            <view class="singleItem">
+              <text>预约信息：{{buySpecification.bookingInfo}}</text>
+            </view>
+            <view class="singleItem">
+              <text>调课说明：{{buySpecification.changClass}}</text>
+            </view>
+            <view class="singleItem">
+              <text>退款说明：{{buySpecification.refund}}</text>
+            </view>
+            <view class="singleItem">
+              <text>温馨提示：{{buySpecification.tips}}</text>
+            </view>      
+    </view>
+
+
+    <view class='operation-area'>  
+      <view class='buy-button' bindtap='makeAppointment'>
+        预约课程
+      </view>      
+    </view>   
+    
+</view>

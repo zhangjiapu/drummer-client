@@ -19,7 +19,7 @@
             <image  src="{{item.storepic}}" class="pro-image"/>
             <view class="prod-content">
                 <!-- <text class="prod-title">  </text> -->
-                <text class="prod-money">{{item.name}}   {{item.intro}}</text>
+                <text class="prod-money">{{item.name}}   {{item.locationDetail}}</text>
             </view>
         </view>
     </view>
