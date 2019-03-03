@@ -23,12 +23,29 @@
         <image class="image" src="{{lesson.lessonpic[0]}}" mode="aspectFill" bindtap="onImageClick"></image>
     </view>
 
+    <!-- 教师介绍 -->
+    <view class="frame">
+      <view class='teacherinfo-container'>
+        <view class='teacher-info'>          
+          <image src='../../../img/pic.jpg' mode='aspectFit' class='teacherpic'></image>
+          <view class='teachername-area'>
+            <text class='teacher-name'>Jacica</text>
+          </view>          
+        </view>      
+        
+        <view>
+          <text class='teacher-motto'>人最宝贵的东西是生命.生命对人来说只有一次.因此,人的一生应当这样度过:当一个人回首往事时,不因虚度年华而悔恨,也不因碌碌无为而羞愧;这样,在他临死的时候,能够说,我把整个生命和全部精力都献给了人生最宝贵的事业——为人类的解放而奋斗。我们必须抓紧时间生活，因为即使是一场暴病或意外都可能终止生命</text>
+        </view>         
+      </view>        
+    </view>
+
     <view class="frame">
         <view class="tag">课程亮点</view>
         <view wx:for="{{lesson.intro}}">
             <view class="singleItem">{{item}}</view>
         </view>
     </view>
+
 
     <view class="frame">
         <view class="tag">班级信息</view>

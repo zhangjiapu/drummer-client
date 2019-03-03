@@ -8,7 +8,7 @@
     background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 4px 1px 1px #cccccc;
-    margin: 8px;
+    margin: 8px 10px;
     padding: 16px;
     
 }
@@ -176,4 +176,47 @@ border: none;
 .comment-button{
   background: transparent;
   border: 0 solid transparent;
+}
+/*教师信息*/
+.teacher-info{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+}
+.teacherpic-container{
+  position: absolute;
+  display: flex;
+  right: 10px;
+  height: 30px;
+  width: 30px;
+}
+.teacherpic{
+  position: relative;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+}
+.teacherinfo-container{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%
+}
+.teacher-name{
+  font-size: 18px;
+  color: #69c3aa;
+}
+.teachername-area{
+  position: absolute;
+  display: flex;
+  right: 5px;
+  justify-content: center;
+  align-self: flex-end;
+}
+.teacher-motto{
+  font-size: 10px;
+  color: gray;
+  margin-top: 15px;
+  margin-right: 10px;
 }

@@ -8,10 +8,20 @@
       </block>
     </swiper>
   </view>
-  <view class="mobi_title">
-    <text class="mobi_icon"></text>
+  <!-- <view class="mobi_title">   
     <text>店铺信息</text>
-  </view>
+  </view>  -->
+
+  <view class='picker-area'>
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+    <view class="picker">
+      <view class='picker-text-container'>    
+        <text class="picker-text">{{multiArray[0][multiIndex[0]]}} {{multiArray[1][multiIndex[1]]}} {{multiArray[2][multiIndex[2]]}}</text>
+        <image src='../../img/down.png' class='down-img'></image>
+      </view>       
+    </view>
+  </picker>
+</view>
 
 <view class="container">
     <view wx:for="{{storeList}}" class="product" wx:key= "_id" bindtap='go2store' data-id="{{item._id}}">

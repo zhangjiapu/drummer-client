@@ -1,8 +1,69 @@
+const shanghaiDistrict = ['嘉定区', '杨浦区', '徐汇区', '静安区', '浦东新区']
+const shanghaiStore = ['嘉定店', '杨浦店', '静安寺店']
+const beijingDistrict = ['朝阳区','海淀区','怀柔区','通州']
+const beijingStore = ['朝阳店','海淀店','怀柔店','通州店']
+
 Page({
   data: {    
     newsloaded:false,
-    storeloaded:false
+    storeloaded:false,
+    multiArray: [['上海市', '北京'], ['嘉定区', '杨浦区', '徐汇区', '静安区', '浦东新区'], ['嘉定店','杨浦店','静安寺店']],
+    multiIndex: [0, 0, 0],
   }, 
+
+  bindMultiPickerChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  bindMultiPickerColumnChange: function (e) {
+    console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
+    var data = {
+      multiArray: this.data.multiArray,
+      multiIndex: this.data.multiIndex
+    };
+    data.multiIndex[e.detail.column] = e.detail.value;
+    switch (e.detail.column) {
+      case 0:
+        switch (data.multiIndex[0]) {
+          case 0:
+            data.multiArray[1] = shanghaiDistrict;
+            data.multiArray[2] = shanghaiStore;
+            break;
+          case 1:
+            data.multiArray[1] = beijingDistrict;
+            data.multiArray[2] = beijingStore;
+            break;
+        }
+        data.multiIndex[1] = 0;
+        data.multiIndex[2] = 0;
+        break;
+      case 1:
+        switch (data.multiIndex[0]) {
+          case 0:
+            switch (data.multiIndex[1]) {
+              case 0,1,2,3,4:
+                data.multiArray[2] = shanghaiStore;
+                break;              
+            }
+            break;
+          case 1:
+            switch (data.multiIndex[1]) {
+              case 0,1,2,3:
+                data.multiArray[2] = beijingStore;
+                break;             
+            }
+            break;
+        }
+        data.multiIndex[2] = 0;
+        console.log(data.multiIndex);
+        break;
+    }
+    this.setData(data);
+    console.log("调试信息：====="+this.data.multiArray)
+    console.log("调试信息：=====" + this.data.multiIndex)
+  },
 
   onPullDownRefresh (){
     this.getInfo();  
@@ -72,7 +133,7 @@ Page({
     let data = e.currentTarget.dataset
     wx.navigateTo({
       // url: "../detail/newsdetail/newsdetail?id=" + data.id
-      url:"../others/myorder/myorder",
+      url:"../detail/lessondetail/lessondetail"
     })
   },
 

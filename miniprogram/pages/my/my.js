@@ -6,7 +6,7 @@ Page({
     mode:[
       {
         id:0,
-        text:"我的订单"
+        text:"我的预约"
       },
       {
         id: 1,

@@ -1,54 +1,308 @@
-<view class="active_block">
-
-    <!-- 页签tab -->
-    <view class="tab-nav">
-      <view wx:for="{{tabnav.tabitem}}" bindtap="setTab" class="{{showtab==index?'active':''}}" data-tabindex="{{index}}" wx:key="{{item.id}}" style='width:50%'>
-      <text class = "tab-text">{{item.text}}</text>
-      </view>				
-				<view class="tab-line" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
-			</view>
-
-    <!-- 私教班列表展示 -->
-    <block wx:for-items="{{personallessons}}" wx:for-item="list" wx:key="_id" >
-    <view class="list" data-id="{{list._id}}" hidden='{{personalHide}}' bindtap='showLessonDetail'>
-      <view class="list-img">
-        <image class="video-img" mode="scaleToFill" src="{{list.lessonpic[0]}}"></image>
-      </view>
-      <view class="list-detail">
-        <view class="list-title"><text>{{list.name}}</text></view>
-        <view>
-        <view class='text-price'>￥{{list.price}}</view>
-        </view>
-        <view class="list-tag">
-        <view class="state" wx:if= "{{!isPersonal}}">一对一</view>
-        <view class="state" wx:elif= "{{isPersonal}}">一对多</view>
-        <view class="join"><text class="list-num">{{list.studentNumber}}</text>人报名</view></view>
-      </view> 
-    </view>
-  </block>
-
-    <!-- 普通班列表展示 -->
-    <block wx:for-items="{{nomallessons}}" wx:for-item="list" wx:key="_id" >
-    <view class="list" data-id="{{list._id}}" bindtap='showLessonDetail'>
-      <view class="list-img">
-        <image class="video-img" mode="scaleToFill" src="{{list.lessonpic[0]}}"></image>
-      </view>
-      <view class="list-detail">
-        <view class="list-title"><text>{{list.name}}</text></view>
-        <view>
-        <view class='text-price'>￥{{list.price}}</view>
-        </view>
-        <view class="list-tag">
-        <view class="state" wx:if= "{{!isPersonal}}">一对一</view>
-        <view class="state" wx:elif= "{{isPersonal}}">一对多</view>
-        <view class="join"><text class="list-num">{{list.studentNumber}}</text>人报名</view></view>
-      </view> 
-    </view>
-  </block>
-  
-</view>
-
-
 <view>
-   
+  <!-- 筛选区域 -->
+  <view class='choice-area'>
+
+    <!-- 城市(item) -->
+    <view class='choice-item'>       
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">            
+        <text class="picker-text">{{multiArray[0][multiIndex[0]]}} {{multiArray[2][multiIndex[2]]}}</text>
+        <!-- {{multiArray[1][multiIndex[1]]}}  -->
+        <image src='../../img/down.png' class='down-img'></image>           
+        </view>
+        </picker>
+         <view class='choice-line'></view>  
+    </view>
+    
+    <!-- 课程(item) -->
+    <view class='choice-item'>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">            
+        <text class="picker-text">{{multiArray[0][multiIndex[0]]}} {{multiArray[2][multiIndex[2]]}}</text>
+        <!-- {{multiArray[1][multiIndex[1]]}}  -->
+        <image src='../../img/down.png' class='down-img'></image>                
+        </view>
+        </picker>
+        <view class='choice-line'></view> 
+      </view>
+
+    <!-- 时间段(item) -->
+    <view class='choice-item'>
+        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <view class="picker">            
+        <text class="picker-text">{{multiArray[0][multiIndex[0]]}} {{multiArray[2][multiIndex[2]]}}</text>
+        <!-- {{multiArray[1][multiIndex[1]]}}  -->
+        <image src='../../img/down.png' class='down-img'></image>           
+        </view>
+        </picker>    
+    </view>  
+  </view>
+
+  <view class='fenge-line'></view>
+
+  <!-- 时间区域 -->
+  <view class='weekday-area'>
+    <view wx:for='{{weekdayItem}}' bindtap='setTab'  class="{{showDayIndex == index? 'weekday-item-checked' : 'weekday-item'}}" wx:key="{item.id}" data-tabindex="{{index}}">
+      <view>
+        <text>{{item.text}}</text>  
+      </view>      
+    </view>
+  </view>
+
+  <!-- 筛选条件展示区 -->
+  <view class = 'fenge-line2-area'>
+    <view class='fenge-line2'></view>
+    <text class="picker-text">{{multiArray[0][multiIndex[0]]}} {{multiArray[2][multiIndex[2]]}}</text>
+    <text class="picker-text-date">{{currdate}}</text>
+  </view>
+  
+  <!-- 课程条目展示区 -->
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
+  <view class='lesson-area'>
+      <!-- 教师头像(左边) -->
+      <view class='lessonpic-container'>
+        <image src='../../img/pic.jpg' mode='aspectFit' class='lessonpic'></image>
+      </view>
+  
+    <!-- 详细信息（右边） -->
+      <view class='lessoninfo-detail'>
+        <view class = 'lessoninfo-container'>
+            <view class='lesson-name'>课程名字</view>
+          <view class='lesson-tag'>
+            <view class='lesson-tag-text'>标签1</view>
+            <view class='lesson-tag-text'>标签2</view>
+          </view>
+          <view class='lesson-digit'>
+            <view class='lesson-digit-time'>07:40-08:40</view>
+            <view class='lesson-digit-price'>￥90</view>
+          </view>    
+        </view>
+        
+      </view>
+
+      <!-- 课程状态对应的按钮 -->
+      <view class='lesson-button'>
+          <view wx:if="{{lessonState == 0}}">结束</view>
+          <view wx:elif="{{lessonState == 1}}">结束</view>
+          <view wx:elsf="{{lessonState == 2}}">预约</view>
+        </view>
+
+  </view>
+
 </view>

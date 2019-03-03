@@ -1,95 +1,136 @@
-var WxAutoImage = require("../../js/wxAutoImageCal.js");
-var app = getApp();
-
+// miniprogram/pages/others/aboutus/aboutus.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    
-  },
-  cusImageLoad: function (e) {
-    var that = this;
-    that.setData(WxAutoImage.wxAutoImageCal(e));
+    multiArray: [['上海市', '北京'], ['嘉定区', '杨浦区', '徐汇区', '静安区', '浦东新区'], ['嘉定店', '杨浦店', '静安寺店']],
+    multiIndex: [0, 0, 0],
+    showDayIndex:-1,
+    currdate:'',
+    weekdayItem: [
+      {
+        "id": 0,
+        "text": "日"  
+      },
+      {
+        "id": 1,
+        "text": "一"
+      },
+      {
+        "id": 2,
+        "text": "二"
+      },
+      {
+        "id": 3,
+        "text": "三"
+      },
+      {
+        "id": 4,
+        "text": "四"
+      },
+      {
+        "id": 5,
+        "text": "五"
+      },
+      {
+        "id": 6,
+        "text": "六"
+      }
+    ]
+
   },
 
-  onLoad:function(){
-    this.setData({
-      tabnav: {
-        tabnum: 2,
-        tabitem: [
-          {
-            "id": 0,
-            "text": "私教班"
-          },
-          {
-            "id": 1,
-            "text": "普通班"
-          }
-        ]}
-  });
-
-    this.getPersonalLesson();
-  },
-
-  setTab:function(e){
-    const edata = e.currentTarget.dataset;
-    this.setData({
-      showtab: Number(edata.tabindex)
-    })
-    this.fetchTabData(edata.tabindex);
-  },
-
-  fetchTabData:function(index){
-    let that = this;
-    console.log(index);
-    switch(index){
-      case 0:
-        that.getPersonalLesson();
-        break;
-      case 1:
-        that.getNomalLesson();
-        break;
+  // 选择一周的哪一天
+  setTab: function (e) {
+    let myDate = new Date()
+    let currday = myDate.getDay() //当前周几
+    let currIndex = e.currentTarget.dataset.tabindex; // 选中的是周几
+    let days = 0
+    if(currIndex < currday){
+      days = currIndex-currday +7
+    }else{
+      days = currIndex - currday
     }
-  },
+    let thatDay_ms = myDate.getTime() + 24 * 60 * 60 * 1000 * days
+    myDate.setTime(thatDay_ms)
 
-  getPersonalLesson:function(){    
-    let that = this;
-    const db = wx.cloud.database({
-      env: 'drummer-2019'
-    });
-    db.collection("lesson").where({
-      isPersonal:true
-    }).get({
-      success(res) {
-        that.setData({
-          personallessons: res.data,
-          personalHide: false
-        })        
-      }
-    });
 
-  },
-
-  getNomalLesson:function(){
-    let that = this;
-    const db = wx.cloud.database({
-      env: 'drummer-2019'
+    let mydate = (myDate.getMonth() + 1) + "月" + myDate.getDate() +"日"   
+    this.setData({
+      showDayIndex: Number(currIndex),  
+      currdate:mydate    
     })
-    db.collection("lesson").where({
-      isPersonal: false
-    }).get({
-      success(res) {
-        that.setData({
-          nomallessons: res.data,
-          personalHide: true
-        })
-      }
-    });
+  console.log(this.data)
+  },
+
+
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let myDate = new Date()
+    this.setData({
+      value: getApp().globalData.userid,
+      showDayIndex:myDate.getDay()
+    })
+    console.log(this.data.showDayIndex)
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
 
   },
 
-  showLessonDetail:function(e){
-    let data = e.currentTarget.dataset;
-    wx.navigateTo({
-      url: '../detail/lessondetail/lessondetail?id='+data.id
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    let dateTemp = new Date()
+    let mydate = (dateTemp.getMonth() + 1) + "月" + dateTemp.getDate() + "日"
+    this.setData({
+      currdate:mydate
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
+
+  
 })
